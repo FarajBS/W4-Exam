@@ -42,15 +42,15 @@ uResBtn.addEventListener("click", () => {
 
         data.find(element => {
 
-            if(uUsername.value != null  && element.username == uUsername.value && uUsername != "") {
+            if(uUsername.value != null  && element.username == uUsername.value && uUsername === null) {
                 checkUserDiv.style.display      = "block";
                 pragUsername.textContent        = "Username Is Exist"; 
             } else {
-                if(uEmail.value != null  && element.email == uEmail.value && uEmail != "") {
+                if(uEmail.value != null  && element.email == uEmail.value && uEmail === null) {
                     checkEmailDiv.style.display     = "block";
                     pragEmailName.textContent       = "Email Is Exist"; 
                 } else {
-                    if(uName == "" && uUsername == "" && uEmail == "" && uPass == "") {
+                    if(uName !== null && uUsername !== null && uEmail !== null && uPass !== null) {
                         fetch(url, {
                             method: 'POST',
                             body: JSON.stringify({
